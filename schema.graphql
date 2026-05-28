@@ -78,5 +78,5 @@ type UpdateProfileResponse implements MutationResponse {
 type GalacticCoordinates @shareable {
   latitude: Float!
   longitude: Float!
-  nickname: String
+  nickname: String @inaccessible
 }
