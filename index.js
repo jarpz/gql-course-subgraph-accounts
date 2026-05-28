@@ -51,6 +51,7 @@ async function startApolloServer() {
       },
       listen: {
         port,
+        host: '0.0.0.0',
       },
     });
 
