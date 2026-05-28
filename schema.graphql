@@ -31,6 +31,9 @@ type Host implements User @key(fields: "id") {
   profilePicture: String! @override(from: "monolith")
   "The host's profile bio description, will be shown in the listing"
   profileDescription: String! @override(from: "monolith")
+
+  "Where the host is primarily located"
+  coordinates: GalacticCoordinates
 }
 
 "A guest is a type of Airlock user. They book places to stay."
@@ -70,4 +73,10 @@ type UpdateProfileResponse implements MutationResponse {
   message: String! @override(from: "monolith")
   "Updated user"
   user: User @override(from: "monolith")
+}
+
+type GalacticCoordinates @shareable {
+  latitude: Float!
+  longitude: Float!
+  nickname: String @inaccessible
 }

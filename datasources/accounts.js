@@ -14,6 +14,10 @@ class AccountsAPI extends RESTDataSource {
   getUser(userId) {
     return this.get(`user/${userId}`);
   }
+
+  getGalacticCoordinates(userId) {
+    return this.get(`user/${userId}/coordinates`);
+  }
 }
 
 module.exports = AccountsAPI;
