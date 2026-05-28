@@ -19,6 +19,7 @@ jobs:
       APOLLO_VCS_COMMIT: ${{ github.event.workflow_run.head_sha }}
       GRAPH_ID: airlock-monolith-0x97u
       SUBGRAPH: accounts
+      HEROKU_APP_URL: https://${{ secrets.HEROKU_APP_NAME_STAGING }}.herokuapp.com
     steps:
       - uses: actions/checkout@v4.1.5
       - name: Install Rover
@@ -30,4 +31,4 @@ jobs:
           echo "$HOME/.rover/bin" >> $GITHUB_PATH
       - name: Publish subgraph to staging registry
         run: |
-          rover subgraph publish ${GRAPH_ID}@staging --schema ./schema.graphql --name $SUBGRAPH
+          rover subgraph publish ${GRAPH_ID}@staging --schema ./schema.graphql --name $SUBGRAPH --routing-url $HEROKU_APP_URL
