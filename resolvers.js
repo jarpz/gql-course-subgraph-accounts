@@ -60,6 +60,9 @@ const resolvers = {
   Listing: {
     __resolveReference:(listing, { dataSources }) => {
       return dataSources.accountsAPI.getUser(listing.hostId)
+    },
+    coordinates: ({id}, _, {dataSources}) => {
+      return dataSources.accountsAPI.getGalacticCoordinates(id);
     }
   }
 };
