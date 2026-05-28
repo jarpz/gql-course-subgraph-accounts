@@ -13,7 +13,7 @@ jobs:
     name: Publish schema to staging variant
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
-    environment: apollo
+    environment: develop
     env:
       APOLLO_KEY: ${{ secrets.APOLLO_KEY }}
       APOLLO_VCS_COMMIT: ${{ github.event.workflow_run.head_sha }}
