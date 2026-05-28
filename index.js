@@ -20,8 +20,8 @@ async function startApolloServer() {
     }),
   });
 
-  const port = 4002; // TODO: change port number
-  const subgraphName = "accounts"; // TODO: change to subgraph name
+  const port = process.env.PORT || 4002;
+  const subgraphName = "accounts";
 
   try {
     const { url } = await startStandaloneServer(server, {
